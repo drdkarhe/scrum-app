@@ -1,0 +1,48 @@
+imports:
+    - { resource: services.yml }
+
+parameters:
+    locale: en
+    secret: bc000f90e0d14d6216e955a26155622931499202
+
+framework:
+    secret: '%secret%'
+    router:
+        resource: '%kernel.project_dir%/app/config/routing.yml'
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    #serializer: { enable_annotations: true }
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    session:
+        handler_id: session.handler.native_file
+        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+    fragments: ~
+    http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+
+sensio_framework_extra:
+   router:
+        annotations: false
+
+github_api:
+    cache:
+        enabled: false
+        service: github.http.cache
+    client: null
+    enterprise_url: null
+    authentication:
+        type: http_password
+        #token: 8a779a850e2b2d1fe5aa9d2cd323be4460fa7016
+        client_id: null
+        client_secret: null
+        username: drdkarhe
+        password: null
